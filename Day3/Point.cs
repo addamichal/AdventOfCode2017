@@ -1,6 +1,8 @@
-﻿namespace Day3
+﻿using System.Collections.Generic;
+
+namespace Day3
 {
-    public class Point
+    public class Point : IEqualityComparer<Point>
     {
         public long X { get; }
         public long Y { get; }
@@ -24,6 +26,16 @@
         public override string ToString()
         {
             return $"{X},{Y}";
+        }
+
+        public bool Equals(Point x, Point y)
+        {
+            return x.Equals(y);
+        }
+
+        public int GetHashCode(Point obj)
+        {
+            return obj.GetHashCode();
         }
     }
 }
